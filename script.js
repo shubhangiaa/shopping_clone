@@ -5,7 +5,9 @@ const navbarCollapse = document.getElementById("navbar");
 navbarToggler.addEventListener("click", function () {
     navbarCollapse.classList.toggle("show");
 });
-
+function showAlert(msg,type){
+    alert(msg)
+}
 fetch("https://fakestoreapi.com/products")
     .then((response) => response.json())
     .then((data) => {
@@ -20,13 +22,13 @@ fetch("https://fakestoreapi.com/products")
 
             productCard.innerHTML = `
                 <div class="card h-100" onclick="showProductDetails(${id})">
-                    <img height="400 px" src="${image}" class="card-img-top" alt="${title}">
+                    <img height="400 " src="${image}" class="card-img-top" alt="${title}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text description">${description}</p>
                         <p><strong>Rating: <img width="40" height="40" src="https://img.icons8.com/fluency/100/christmas-star.png" alt="christmas-star"/> ${rate}</strong></p>
                         <p><strong>Price: $${price}</strong></p>
-                        <button onclick="addToCart(event,${id}) class="btn btn-primary mt-auto">Add to Cart</button>
+                        <button onclick="addToCart(event,${id})" class="btn btn-primary mt-auto">Add to Cart</button>
                     </div>
                 </div>
             `;
@@ -45,4 +47,6 @@ fetch("https://fakestoreapi.com/products")
         
     }
 
-    function addToCart
+    function addToCart(e,id){
+        showAlert("Product added to Cart","success")
+    }
