@@ -1,0 +1,21 @@
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.card-title {
+    height: 60px;
+    overflow: hidden;
+}
+
+.description {
+    height: 75px;
+    overflow-y: scroll;
+}
+
+.card:hover{
+    transform: scale(1.03);
+    box-shadow: 0px 0px 5px black;
+}
