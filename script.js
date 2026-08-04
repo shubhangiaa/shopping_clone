@@ -5,7 +5,7 @@ const navbarCollapse = document.getElementById("navbar");
 navbarToggler.addEventListener("click", function () {
     navbarCollapse.classList.toggle("show");
 });
-function showAlert(msg,type){
+function showAlert(msg, type) {
     alert(msg)
 }
 fetch("https://fakestoreapi.com/products")
@@ -15,7 +15,7 @@ fetch("https://fakestoreapi.com/products")
 
         const productContainer = document.getElementById("product-container");
 
-        data.map(({id, image, title, description, price, rating: { rate } }) => {
+        data.map(({ id, image, title, description, price, rating: { rate } }) => {
 
             let productCard = document.createElement("div");
             productCard.classList.add("col-md-4", "mb-3");
@@ -38,15 +38,15 @@ fetch("https://fakestoreapi.com/products")
     })
     .catch((error) => console.error(error));
 
-    function showProductDetails(id){
-        const currentPath =window.location.pathname
-        console.log(currentPath);
-        const newPath =currentPath.replace("index.html","product.html" + `?id=${id}`);
-        console.log(newPath);
-        window.location.href = newPath;
-        
-    }
+function showProductDetails(id) {
+    const currentPath = window.location.pathname
+    console.log(currentPath);
+    const newPath = currentPath.replace("index.html", "product.html" + `?id=${id}`);
+    console.log(newPath);
+    window.location.href = newPath;
 
-    function addToCart(e,id){
-        showAlert("Product added to Cart","success")
-    }
+}
+
+function addToCart(e, id) {
+    showAlert("Product added to Cart", "success")
+}
