@@ -5,9 +5,28 @@ const navbarCollapse = document.getElementById("navbar");
 navbarToggler.addEventListener("click", function () {
     navbarCollapse.classList.toggle("show");
 });
+
 function showAlert(msg, type) {
-    alert(msg)
-}
+    const alertContainer = document.getElementById("alert-container")
+    const alert = document.createElement("div")
+    alert.classList.add("alert", `alert-${type}`, "alert-dismissible", "fade", "show");
+
+     alert.innerHTML = `
+    ${msg}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+`;
+    alertContainer.append(alert)
+    setTimeout(
+        () => {
+            alert.classList.remove("show")
+            alert.addEventListener("transitionend",function(){
+                alertContainer.removeChild(alert)
+            });
+        }, 2000);
+        
+    };
+
+
 fetch("https://fakestoreapi.com/products")
     .then((response) => response.json())
     .then((data) => {
@@ -48,5 +67,6 @@ function showProductDetails(id) {
 }
 
 function addToCart(e, id) {
-    showAlert("Product added to Cart", "success")
+    e.stopPropagation();
+    showAlert("Product added to Cart", "success");
 }
