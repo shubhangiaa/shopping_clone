@@ -11,7 +11,7 @@ function showAlert(msg, type) {
     const alert = document.createElement("div")
     alert.classList.add("alert", `alert-${type}`, "alert-dismissible", "fade", "show");
 
-     alert.innerHTML = `
+    alert.innerHTML = `
     ${msg}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 `;
@@ -19,12 +19,12 @@ function showAlert(msg, type) {
     setTimeout(
         () => {
             alert.classList.remove("show")
-            alert.addEventListener("transitionend",function(){
+            alert.addEventListener("transitionend", function () {
                 alertContainer.removeChild(alert)
             });
         }, 2000);
-        
-    };
+
+};
 
 
 fetch("https://fakestoreapi.com/products")
@@ -69,4 +69,9 @@ function showProductDetails(id) {
 function addToCart(e, id) {
     e.stopPropagation();
     showAlert("Product added to Cart", "success");
+    Swal.fire({
+        title: "ADDED SUCCESSFULLY!",
+        icon: "success",
+        draggable: true
+    });
 }
