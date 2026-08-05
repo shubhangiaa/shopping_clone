@@ -301,10 +301,13 @@
     .navbar-toggler {
         padding: 3px 5px;
     }
- .card-body: {
-    padding: 2px !important;}
+   
     .navbar-toggler-icon {
         width: 1em;
+        }
+    .card-body {
+    padding: 2px !important;
+    /* background-color: aqua; */
     
        
 }}
