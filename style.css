@@ -276,6 +276,11 @@
         width: 1.1em;
         height: 1.1em;
     }
+    .card-body {
+    padding: 2px !important;
+    background-color: rgb(247, 248, 244); 
+    margin-top: 2px;   
+}
 }
 
 /* Extra Small Devices (<576px) */
@@ -305,9 +310,9 @@
     .navbar-toggler-icon {
         width: 1em;
         }
-    .card-body {
+     .card-body {
     padding: 2px !important;
-    /* background-color: aqua; */
-    
-       
-}}
+    background-color: rgb(247, 248, 244); 
+    margin-top: 2px;   
+}
+}
