@@ -210,3 +210,101 @@
         padding-right: 2px;
     }
 }
+/* Large Devices (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .navbar {
+        padding: 10px 16px;
+    }
+
+    .navbar-brand img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+}
+
+/* Medium Devices (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .navbar {
+        padding: 8px 14px;
+    }
+
+    .navbar-brand img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar-brand {
+        font-size: 1.15rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+    }
+}
+
+/* Small Devices (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+
+    .navbar {
+        padding: 6px 12px;
+    }
+
+    .navbar-brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .navbar-toggler {
+        padding: 4px 6px;
+    }
+
+    .navbar-toggler-icon {
+        width: 1.1em;
+        height: 1.1em;
+    }
+}
+
+/* Extra Small Devices (<576px) */
+@media (max-width: 575px) {
+
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .navbar-brand img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .navbar-toggler {
+        padding: 3px 5px;
+    }
+ .card-body: {
+    padding: 2px !important;}
+    .navbar-toggler-icon {
+        width: 1em;
+    
+       
+}}
