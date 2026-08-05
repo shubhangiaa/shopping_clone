@@ -1,21 +1,208 @@
-.card-body{
+.card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
 }
 
+/* Desktop */
 .card-title {
     height: 60px;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 
 .description {
     height: 75px;
-    overflow-y: scroll;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.03);
-    box-shadow: 0px 0px 5px black;
+    box-shadow: 0 0 5px black;
+}
+
+.main {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.img-carousel {
+    text-align: center;
+}
+
+.img-carousel img {
+    width: 100%;
+}
+
+/* ================= Large (992px - 1199px) ================= */
+@media (min-width:992px) and (max-width:1199px) {
+
+    .card-img-top { height: 230px; }
+
+    .card-body { padding: 12px; }
+
+    .card-title {
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .description {
+        height: 65px;
+        font-size: 13px;
+    }
+
+    .card p { font-size: 14px; }
+
+    .btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .fa-star,
+    .fa-star-half-stroke,
+    .fa-regular.fa-star {
+        font-size: 13px;
+    }
+}
+
+/* ================= Medium (768px - 991px) ================= */
+@media (min-width:768px) and (max-width:991px) {
+
+    .card-img-top {
+        height: 180px;
+        object-fit: contain;
+    }
+
+    .card-body { padding: 10px; }
+
+    .card-title {
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .description {
+        height: 60px;
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .card p { font-size: 12px; }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .fa-star,
+    .fa-star-half-stroke,
+    .fa-regular.fa-star {
+        font-size: 11px;
+    }
+}
+
+/* ================= Small (576px - 767px) ================= */
+@media (min-width:576px) and (max-width:767px) {
+
+    .card-img-top {
+        height: 130px;
+        object-fit: contain;
+    }
+
+    .card-body { padding: 8px; }
+
+    .card-title {
+        height: 35px;
+        font-size: 13px;
+    }
+
+    .description {
+        height: 45px;
+        font-size: 11px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .card p {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+    .btn {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .fa-star,
+    .fa-star-half-stroke,
+    .fa-regular.fa-star {
+        font-size: 10px;
+    }
+        #product-container {
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+
+    #product-container > div {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+}
+
+/* ================= Extra Small (<576px) ================= */
+@media (max-width:575px) {
+
+    .card-img-top {
+        height: 90px;
+        object-fit: contain;
+    }
+
+    .card-body { padding: 5px; }
+
+    .card-title {
+        height: 28px;
+        font-size: 10px;
+    }
+
+    .description {
+        height: 30px;
+        font-size: 9px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .card p {
+        font-size: 9px;
+        margin-bottom: 2px;
+    }
+
+    .btn {
+        font-size: 2px;
+        padding:none !important;
+    }
+
+    .fa-star,
+    .fa-star-half-stroke,
+    .fa-regular.fa-star {
+        font-size: 8px;
+    }
+
+    #product-container {
+        margin-left: -2px;
+        margin-right: -2px;
+    }
+
+    #product-container > div {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
 }

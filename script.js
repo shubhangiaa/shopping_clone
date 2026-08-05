@@ -26,7 +26,21 @@ function showAlert(msg, type) {
 
 };
 
+function printStars(rating) {
+    let stars = "";
 
+    for (let i = 1; i <= 5; i++) {
+        if (rating >= i) {
+            stars += '<i class="fa-solid fa-star text-warning"></i>';
+        } else if (rating >= i - 0.5) {
+            stars += '<i class="fa-solid fa-star-half-stroke text-warning"></i>';
+        } else {
+            stars += '<i class="fa-regular fa-star text-warning"></i>';
+        }
+    }
+
+    return stars;
+}
 fetch("https://fakestoreapi.com/products")
     .then((response) => response.json())
     .then((data) => {
@@ -37,7 +51,7 @@ fetch("https://fakestoreapi.com/products")
         data.map(({ id, image, title, description, price, rating: { rate } }) => {
 
             let productCard = document.createElement("div");
-            productCard.classList.add("col-md-4", "mb-3");
+            productCard.classList.add("col-4", "col-md-4", "mb-3");
 
             productCard.innerHTML = `
                 <div class="card h-100" onclick="showProductDetails(${id})">
@@ -45,13 +59,17 @@ fetch("https://fakestoreapi.com/products")
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text description">${description}</p>
-                        <p><strong>Rating: <img width="40" height="40" src="https://img.icons8.com/fluency/100/christmas-star.png" alt="christmas-star"/> ${rate}</strong></p>
+                      <p>
+    <strong>Rating:
+    ${printStars(rate)}
+    <span style="color:green">(${rate})<span></strong>
+</p>
                         <p><strong>Price: $${price}</strong></p>
                         <button onclick="addToCart(event,${id})" class="btn btn-primary mt-auto">Add to Cart</button>
                     </div>
                 </div>
             `;
-
+//  <p><strong>Rating: <img width="40" height="40" src="https://img.icons8.com/fluency/100/christmas-star.png" alt="christmas-star"/> ${rate}</strong></p>
             productContainer.appendChild(productCard);
         });
     })
@@ -75,3 +93,26 @@ function addToCart(e, id) {
         draggable: true
     });
 }
+
+//Carousel
+$(".slide-show").slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
+  dots: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+// $(document).ready(function () {
+//     $(".slide-show").slick({
+//         slidesToShow: 3,
+//         slidesToScroll: 1,
+//         arrows: true,
+//         dots: true,
+//         autoplay: true,
+//         autoplaySpeed: 2000,
+//         draggable: false,     // Disable mouse dragging
+//         swipe: false,         // Disable touch swipe
+//         touchMove: false      // Disable touch movement
+//     });
+// });
