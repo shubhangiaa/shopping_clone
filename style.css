@@ -46,7 +46,7 @@
 /* ================= Large (992px - 1199px) ================= */
 @media (min-width:992px) and (max-width:1199px) {
 
-    .card-img-top { height: 230px; }
+    .card-img-top { height: 400px; }
 
     .card-body { padding: 12px; }
 
@@ -225,9 +225,9 @@
     .navbar-brand {
         font-size: 1.3rem;
     }
-}
+} 
 
-/* Medium Devices (768px - 991px) */
+/* // Medium Devices (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
 
     .navbar {
@@ -316,3 +316,26 @@
     margin-top: 2px;   
 }
 }
+/* Fix alignment layout structure constraints inside the shopping cart interface view */
+#cart-items .list-group-item {
+    gap: 15px;
+}
+
+#cart-items h6 {
+    font-size: 1rem;
+}
+
+/* Extra Small screen font tweaks for text readability inside cart lists */
+@media (max-width: 575px) {
+    #cart-items h6 {
+        font-size: 0.8rem;
+    }
+    #cart-items .btn-group .btn {
+        padding: 2px 6px !important;
+        font-size: 10px !important;
+    }
+}
+
+/* .custom-padding {
+  padding:10px !important;
+} */

@@ -6,25 +6,25 @@ navbarToggler.addEventListener("click", function () {
     navbarCollapse.classList.toggle("show");
 });
 
-function showAlert(msg, type) {
-    const alertContainer = document.getElementById("alert-container")
-    const alert = document.createElement("div")
-    alert.classList.add("alert", `alert-${type}`, "alert-dismissible", "fade", "show");
+// function showAlert(msg, type) {
+//     const alertContainer = document.getElementById("alert-container")
+//     const alert = document.createElement("div")
+//     alert.classList.add("alert", `alert-${type}`, "alert-dismissible", "fade", "show");
 
-    alert.innerHTML = `
-    ${msg}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-`;
-    alertContainer.append(alert)
-    setTimeout(
-        () => {
-            alert.classList.remove("show")
-            alert.addEventListener("transitionend", function () {
-                alertContainer.removeChild(alert)
-            });
-        }, 2000);
+//     alert.innerHTML = `
+//     ${msg}
+//     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+// `;
+//     alertContainer.append(alert)
+//     setTimeout(
+//         () => {
+//             alert.classList.remove("show")
+//             alert.addEventListener("transitionend", function () {
+//                 alertContainer.removeChild(alert)
+//             });
+//         }, 2000);
 
-};
+// };
 
 function printStars(rating) {
     let stars = "";
@@ -45,7 +45,7 @@ fetch("https://fakestoreapi.com/products")
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
-
+        products=data;
         const productContainer = document.getElementById("product-container");
 
         data.map(({ id, image, title, description, price, rating: { rate } }) => {
@@ -59,11 +59,7 @@ fetch("https://fakestoreapi.com/products")
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text description">${description}</p>
-                      <p>
-    <strong>Rating:
-    ${printStars(rate)}
-    <span style="color:green">(${rate})<span></strong>
-</p>
+                        <p> <strong>Rating:${printStars(rate)}<span style="color:green">(${rate})<span></strong></p>
                         <p><strong>Price: $${price}</strong></p>
                         <button onclick="addToCart(event,${id})" class="btn btn-primary mt-auto">Add to Cart</button>
                     </div>
@@ -86,12 +82,35 @@ function showProductDetails(id) {
 
 function addToCart(e, id) {
     e.stopPropagation();
-    showAlert("Product added to Cart", "success");
+    // showAlert("Product added to Cart", "success");
     Swal.fire({
-        title: "ADDED SUCCESSFULLY!",
+        title: "Product added to Cart Succssfully!",
         icon: "success",
         draggable: true
     });
+    let cart = JSON.parse(localStorage.getItem("cart")) || []
+    
+    console.log(cart);
+    console.log(id);
+    console.log(products);//whole array
+    
+    let product =products.find((item)=>item.id ===id)
+    console.log("product",product);//sinle object from array
+    
+
+    if (product){
+       //check if it exist in local storage
+    let existingitem = cart.find((item)=>item.id ===id )
+    if (existingitem) {
+        existingitem.quantity ++
+    }else{
+        product.quantity=1
+        cart.push(product)
+    }
+    }
+    console.log(JSON.parse(localStorage.getItem("cart")));
+    
+    localStorage.setItem("cart",JSON.stringify(cart))
 }
 
 //Carousel
@@ -103,16 +122,3 @@ $(".slide-show").slick({
   autoplay: true,
   autoplaySpeed: 2000,
 });
-// $(document).ready(function () {
-//     $(".slide-show").slick({
-//         slidesToShow: 3,
-//         slidesToScroll: 1,
-//         arrows: true,
-//         dots: true,
-//         autoplay: true,
-//         autoplaySpeed: 2000,
-//         draggable: false,     // Disable mouse dragging
-//         swipe: false,         // Disable touch swipe
-//         touchMove: false      // Disable touch movement
-//     });
-// });

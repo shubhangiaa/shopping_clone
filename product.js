@@ -12,6 +12,20 @@ console.log(urlParams);
 const productID = urlParams.get("id")
 console.log(productID);
 
+function printStars(rating) {
+    let stars = "";
+
+    for (let i = 1; i <= 5; i++) {
+        if (rating >= i) {
+            stars += '<i class="fa-solid fa-star text-warning"></i>';
+        } else if (rating >= i - 0.5) {
+            stars += '<i class="fa-solid fa-star-half-stroke text-warning"></i>';
+        } else {
+            stars += '<i class="fa-regular fa-star text-warning"></i>';
+        }
+    }
+    return stars;
+}
 fetch(`https://fakestoreapi.com/products/${productID}`)
     .then((response) => response.json())
     .then((data) => {
@@ -35,7 +49,7 @@ fetch(`https://fakestoreapi.com/products/${productID}`)
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text description">${description}</p>
-                        <p><strong>Rating: <img width="40" height="40" src="https://img.icons8.com/fluency/100/christmas-star.png" alt="christmas-star"/> ${rate}</strong></p>
+                        <p> <strong>Rating:${printStars(rate)}<span style="color:green">(${rate})<span></strong></p>
                         <p><strong>Price: $${price}</strong></p>
                         <button class="btn btn-primary mt-auto">Add to Cart</button>
                     </div>
