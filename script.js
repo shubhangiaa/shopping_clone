@@ -1,11 +1,20 @@
 let products = [];
-const navbarToggler = document.getElementById("navbar-toggler");
-const navbarCollapse = document.getElementById("navbar");
+// const navbarToggler = document.getElementById("navbar-toggler");
+// const navbarCollapse = document.getElementById("navbar");
 
-navbarToggler.addEventListener("click", function () {
-    navbarCollapse.classList.toggle("show");
+// navbarToggler.addEventListener("click", function () {
+//     navbarCollapse.classList.toggle("show");
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const navbarToggler = document.getElementById("navbar-toggler");
+  const navbarCollapse = document.getElementById("navbar");
 
+  if (navbarToggler && navbarCollapse) {
+    navbarToggler.addEventListener("click", function () {
+      navbarCollapse.classList.toggle("show");
+    });
+  }
+});
 // function showAlert(msg, type) {
 //     const alertContainer = document.getElementById("alert-container")
 //     const alert = document.createElement("div")
