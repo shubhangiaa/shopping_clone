@@ -1,12 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const navbarToggler = document.getElementById("navbar-toggler");
-  const navbarCollapse = document.getElementById("navbar");
+const navbarToggler = document.getElementById("navbar-toggler");
+const navbarCollapse = document.getElementById("navbar");
 
-  if (navbarToggler && navbarCollapse) {
-    navbarToggler.addEventListener("click", function () {
-      navbarCollapse.classList.toggle("show");
-    });
-  }
+navbarToggler.addEventListener("click", function () {
+    navbarCollapse.classList.toggle("show");
 });
 
 let cartitems = document.getElementById("cart-items")
