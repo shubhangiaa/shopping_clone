@@ -23,23 +23,44 @@ function updatecartui() {
         const cartitem = document.createElement("div")
         cartitem.classList.add("list-group-item", "d-flex", "justify-content-between")
         cartitem.innerHTML = `
-        
-    <div class="col-6 text-truncate  custom-padding" style="padding: 10;" align-items-center p-auto">
-        <strong class="product-title" title="${item.title}">${item.title}</strong>
+<div class="row w-100 align-items-center">
+
+    <div class="col-6 cart-title text-truncate">
+        <strong class="product-title" title="${item.title}">
+            ${item.title}
+        </strong>
     </div>
 
-    <div class="col-3  align-text-center  custom-padding">
-        <span class="text-success font-weight-bold">$${parseFloat(item.price).toFixed(2)}</span>
+    <div class="col-3 cart-price text-center">
+        <span class="text-success font-weight-bold">
+            $${parseFloat(item.price).toFixed(2)}
+        </span>
     </div>
 
+    <div class="col-3 cart-buttons d-flex align-items-center">
+        <button type="button"
+            class="btn btn-primary rounded-0 decrement"
+            data-index="${index}">-</button>
 
-<div class="col-2 align-items-center d-flex custom-padding ">
-<button type="button" class="btn btn-primary rounded-0 decrement"data-index="${index}">-</button>
+        <button type="button"
+            class="btn rounded-0 quantity"
+            data-index="${index}">
+            ${item.quantity}
+        </button>
 
-<button type="button" class="btn rounded-0 "data-index="${index}">${item.quantity}</button>
-  <button type="button" class="btn btn-primary rounded-0 increment" data-index="${index}">+</button>
-  <button type="button" class="btn  rounded-0 remove"data-index="${index}"><img width="48" height="48" src="https://img.icons8.com/emoji/48/cross-mark-emoji.png" alt="cross-mark-emoji"/></button>
-</div>`;
+        <button type="button"
+            class="btn btn-primary rounded-0 increment"
+            data-index="${index}">+</button>
+
+        <button type="button"
+            class="btn rounded-0 remove"
+            data-index="${index}">
+            <img src="https://img.icons8.com/emoji/48/cross-mark-emoji.png">
+        </button>
+    </div>
+
+</div>
+`;
 
         cartitems.append(cartitem)
         total += item.price * item.quantity
@@ -101,14 +122,46 @@ updatecartui()
 
 buynowbtn.addEventListener("click", handleBuy);
 
+// function handleBuy() {
+//   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//   console.log("buy", cart);
+//   if (cart.length === 0) {
+//     Swal.fire("Your cart is empty. Please add items to cart");
+//     return;
+//   } else {
+//    window.location.href = "ordersuccess.html";
+// localStorage.removeItem("cart");
+//   }
+// }
 function handleBuy() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  console.log("buy", cart);
-  if (cart.length === 0) {
-    Swal.fire("Your cart is empty. Please add items to cart");
-    return;
-  } else {
-   window.location.href = "ordersuccess.html";
-localStorage.removeItem("cart");
-  }
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        Swal.fire("Your cart is empty. Please add items to cart");
+        return;
+    }
+
+    let loggedInUser =
+        JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (!loggedInUser) {
+
+        Swal.fire({
+            title: "Please Login",
+            text: "You need to login before placing an order",
+            icon: "warning",
+            confirmButtonText: "Login"
+        }).then(() => {
+
+            window.location.href = "login.html";
+
+        });
+
+        return;
+    }
+
+    window.location.href = "ordersuccess.html";
+
+    localStorage.removeItem("cart");
 }

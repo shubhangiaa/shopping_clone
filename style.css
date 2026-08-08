@@ -339,3 +339,400 @@
 /* .custom-padding {
   padding:10px !important;
 } */
+
+/* ================= GENERAL RESPONSIVE ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Large devices */
+@media (max-width: 1199px) {
+
+    .container {
+        max-width: 95%;
+    }
+
+    .navbar {
+        padding: 8px 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* Medium devices */
+@media (max-width: 991px) {
+
+    .container {
+        max-width: 95%;
+    }
+
+    .navbar {
+        min-height: 50px;
+        padding: 6px 12px;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .nav-link {
+        padding: 6px 8px !important;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+}
+
+
+/* Small devices */
+@media (max-width: 767px) {
+
+    .container {
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .navbar {
+        min-height: 48px;
+        padding: 5px 8px;
+    }
+
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 5px 8px !important;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .carousel img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* Extra small devices */
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .navbar {
+        min-height: 45px;
+        padding: 4px 6px;
+    }
+
+    .navbar-brand {
+        font-size: 16px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}
+
+/* Footer */
+.footer {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    overflow: hidden;
+}
+
+/* Desktop */
+.footer .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .footer {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+    }
+
+    .footer .container {
+        padding: 10px 12px;
+    }
+
+    .footer h5 {
+        font-size: 16px;
+        margin-bottom: 8px !important;
+    }
+
+    .footer .h1 {
+        font-size: 23px;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+        font-size: 13px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .footer {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .footer .container {
+        padding: 5px 8px;
+    }
+
+    .footer h5 {
+        font-size: 14px;
+        margin-bottom: 5px !important;
+    }
+
+    .footer .h1 {
+        font-size: 19px;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+        font-size: 12px;
+    }
+
+    .footer .input-group {
+        margin-bottom: 5px !important;
+    }
+
+    .footer .form-control {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .footer .btn {
+        padding: 5px 8px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .footer {
+        padding-top: 7px !important;
+        padding-bottom: 7px !important;
+    }
+
+    .footer .container {
+        padding: 3px 5px;
+    }
+
+    .footer h5 {
+        font-size: 13px;
+        margin-bottom: 3px !important;
+    }
+
+    .footer .h1 {
+        font-size: 17px;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+        font-size: 11px;
+    }
+
+    .footer .form-control {
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+
+    .footer .btn {
+        padding: 4px 7px;
+    }
+}
+.cart-buttons {
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.cart-buttons .btn {
+    flex-shrink: 0;
+    padding: 4px 7px;
+}
+
+.cart-buttons img {
+    width: 14px;
+    height: 14px;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .cart-title {
+        flex: 0 0 42%;
+        max-width: 42%;
+    }
+
+    .cart-price {
+        flex: 0 0 23%;
+        max-width: 23%;
+    }
+
+    .cart-buttons {
+        flex: 0 0 35%;
+        max-width: 35%;
+        padding: 0;
+        justify-content: flex-end;
+    }
+
+    .cart-buttons .btn {
+        padding: 2px 4px;
+        font-size: 10px;
+    }
+
+    .cart-buttons img {
+        width: 10px;
+        height: 10px;
+    }
+
+    .product-title {
+        font-size: 11px;
+    }
+
+    .cart-price {
+        font-size: 11px;
+    }
+}
+@media (max-width: 480px) {
+
+    .cart-title {
+        flex: 0 0 38%;
+        max-width: 38%;
+    }
+
+    .cart-price {
+        flex: 0 0 22%;
+        max-width: 22%;
+    }
+
+    .cart-buttons {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+
+    .cart-buttons .btn {
+        padding: 1px 3px;
+        font-size: 9px;
+    }
+
+    .cart-buttons img {
+        width: 8px;
+        height: 8px;
+    }
+}
+/* Medium devices */
+@media (max-width: 991px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    h4 { font-size: 18px; }
+    h5 { font-size: 16px; }
+    h6 { font-size: 14px; }
+}
+
+/* Small devices */
+@media (max-width: 767px) {
+    h1 { font-size: 24px; }
+    h2 { font-size: 21px; }
+    h3 { font-size: 18px; }
+    h4 { font-size: 16px; }
+    h5 { font-size: 14px; }
+    h6 { font-size: 13px; }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    h1 { font-size: 21px !important; }
+    h2 { font-size: 19px; }
+    h3 { font-size: 16px; }
+    h4 { font-size: 15px; }
+    h5 { font-size: 13px; }
+    h6 { font-size: 12px; }
+}
