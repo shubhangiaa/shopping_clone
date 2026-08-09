@@ -1,64 +1,4 @@
 
-// const navbarToggler = document.getElementById("navbar-toggler");
-// const navbarCollapse = document.getElementById("navbar");
-
-// navbarToggler.addEventListener("click", function () {
-//     navbarCollapse.classList.toggle("show");
-// });
-
-// const urlParams = new URLSearchParams(window.location.search)
-// console.log(urlParams);
-
-// const productID = urlParams.get("id")
-// console.log(productID);
-
-// function printStars(rating) {
-//     let stars = "";
-
-//     for (let i = 1; i <= 5; i++) {
-//         if (rating >= i) {
-//             stars += '<i class="fa-solid fa-star text-warning"></i>';
-//         } else if (rating >= i - 0.5) {
-//             stars += '<i class="fa-solid fa-star-half-stroke text-warning"></i>';
-//         } else {
-//             stars += '<i class="fa-regular fa-star text-warning"></i>';
-//         }
-//     }
-//     return stars;
-// }
-// fetch(`https://fakestoreapi.com/products/${productID}`)
-//     .then((response) => response.json())
-//     .then((data) => {
-//     const {
-//         id,
-//         image,
-//         title,
-//         description,
-//         price,
-//         rating: { rate }
-//     } = data;
-    
-//         const productContainer = document.getElementById("product-details");
-
-//             let productCard = document.createElement("div");
-//             productCard.classList.add("col-md-6");
-
-//             productCard.innerHTML = `
-//                 <div class="container  h-100">
-//                     <img height="400 " src="${image}" class="card-img-top" alt="${title}">
-//                     <div class="card-body d-flex flex-column">
-//                         <h5 class="card-title">${title}</h5>
-//                         <p class="card-text description">${description}</p>
-//                         <p> <strong>Rating:${printStars(rate)}<span style="color:green">(${rate})<span></strong></p>
-//                         <p><strong>Price: $${price}</strong></p>
-//                         <button onclick="addToCart(event,${id})" class="btn btn-primary mt-auto">Add to Cart</button>
-//                     </div>
-//                 </div>
-//             `;
-
-//             productContainer.append(productCard);
-//         })
-//     .catch((error) => console.error(error));
 const navbarToggler = document.getElementById("navbar-toggler");
 const navbarCollapse = document.getElementById("navbar");
 
@@ -66,176 +6,56 @@ navbarToggler.addEventListener("click", function () {
     navbarCollapse.classList.toggle("show");
 });
 
+const urlParams = new URLSearchParams(window.location.search)
+console.log(urlParams);
 
-const urlParams = new URLSearchParams(window.location.search);
-const productID = Number(urlParams.get("id"));
-
+const productID = urlParams.get("id")
 console.log(productID);
 
-
-let product;
-
-
-// Stars
 function printStars(rating) {
-
     let stars = "";
 
     for (let i = 1; i <= 5; i++) {
-
         if (rating >= i) {
             stars += '<i class="fa-solid fa-star text-warning"></i>';
-        }
-
-        else if (rating >= i - 0.5) {
+        } else if (rating >= i - 0.5) {
             stars += '<i class="fa-solid fa-star-half-stroke text-warning"></i>';
-        }
-
-        else {
+        } else {
             stars += '<i class="fa-regular fa-star text-warning"></i>';
         }
     }
-
     return stars;
 }
-
-
-// Fetch product
 fetch(`https://fakestoreapi.com/products/${productID}`)
-    .then(response => response.json())
+    .then((response) => response.json())
+    .then((data) => {
+    const {
+        id,
+        image,
+        title,
+        description,
+        price,
+        rating: { rate }
+    } = data;
+    
+        const productContainer = document.getElementById("product-details");
 
-    .then(data => {
+            let productCard = document.createElement("div");
+            productCard.classList.add("col-md-6");
 
-        product = data;
-
-        const {
-            id,
-            image,
-            title,
-            description,
-            price,
-            rating: { rate }
-        } = data;
-
-
-        const productContainer =
-            document.getElementById("product-details");
-
-
-        const productCard =
-            document.createElement("div");
-
-        productCard.classList.add("col-12", "col-md-6");
-
-
-        productCard.innerHTML = `
-
-            <div class="product-details-card h-100">
-
-                <img
-                    src="${image}"
-                    class="card-img-top"
-                    alt="${title}"
-                >
-
-                <div class="card-body d-flex flex-column">
-
-                    <h5 class="card-title">
-                        ${title}
-                    </h5>
-
-                    <p class="card-text description">
-                        ${description}
-                    </p>
-
-                    <p>
-                        <strong>
-                            Rating:
-                            ${printStars(rate)}
-                            <span style="color:green">
-                                (${rate})
-                            </span>
-                        </strong>
-                    </p>
-
-                    <p>
-                        <strong>
-                            Price: $${price}
-                        </strong>
-                    </p>
-
-                    <button
-                        onclick="addToCart(event, ${id})"
-                        class="btn btn-primary mt-auto">
-
-                        Add to Cart
-
-                    </button>
-
+            productCard.innerHTML = `
+                <div class="container  h-100">
+                    <img height="400 " src="${image}" class="card-img-top" alt="${title}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text description">${description}</p>
+                        <p> <strong>Rating:${printStars(rate)}<span style="color:green">(${rate})<span></strong></p>
+                        <p><strong>Price: $${price}</strong></p>
+                        <button onclick="addToCart(event,${id})" class="btn btn-primary mt-auto">Add to Cart</button>
+                    </div>
                 </div>
+            `;
 
-            </div>
-        `;
-
-
-        productContainer.append(productCard);
-
-    })
-
-    .catch(error => console.error(error));
-
-
-// Show product details
-function showProductDetails(id) {
-
-    const currentPath = window.location.pathname;
-
-    const newPath =
-        currentPath.replace(
-            "index.html",
-            "product.html?id=" + id
-        );
-
-    window.location.href = newPath;
-}
-
-
-// Add to cart
-function addToCart(e, id) {
-
-    e.stopPropagation();
-
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
-
-
-    let existingItem =
-        cart.find(item => item.id === id);
-
-
-    if (existingItem) {
-
-        existingItem.quantity++;
-
-    }
-
-    else {
-
-        product.quantity = 1;
-
-        cart.push(product);
-    }
-
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
-
-
-    Swal.fire({
-        title: "Product added to Cart Successfully!",
-        icon: "success",
-        draggable: true
-    });
-}
+            productContainer.append(productCard);
+        })
+    .catch((error) => console.error(error));

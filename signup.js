@@ -32,3 +32,9 @@ signupForm.addEventListener("submit", function (e) {
 
     window.location.href = "login.html";
 });
+const navbarToggler = document.getElementById("navbar-toggler");
+const navbarCollapse = document.getElementById("navbar");
+
+navbarToggler.addEventListener("click", function () {
+    navbarCollapse.classList.toggle("show");
+});
